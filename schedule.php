@@ -85,7 +85,7 @@ if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
                 wp_enqueue_script('jquery-ui-datepicker');
                 wp_enqueue_style('jquery-ui-css', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css');
                 wp_enqueue_style('jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
-                $content = '<script type="text/javascript">
+                $contentAppend = '<script type="text/javascript">
                 jQuery(document).ready(function($) {
                     $(\'.custom_date\').datepicker({
                     dateFormat : \'yy-mm-dd\'
@@ -116,11 +116,11 @@ if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
              </p>
         </div>
             <a href="#TB_inline?&width=800&height=800&inlineId=my-schedule-layer" class="thickbox">'.returnValidValueToScheduleString('schedule_dot_li_call_to_action_content_value_field').'</a>';
-
-                return $content;
+            return $contentAppend.$content;
             }
     }
     add_filter( 'the_content', 'schedule_add_button_in_pages_and_posts' );
+
 }
 
 function deliver_mail() {
@@ -154,9 +154,6 @@ function schedule_dot_li_settings_init() {
         '',
         'SchedulePluginCustomContent'
     );
-
-
-
 
     add_settings_field(
         'schedule_dot_li_call_to_action_content_value_field',
@@ -337,8 +334,6 @@ function schedule_dot_li_submit_field_section_render() {
 
 }
 
-
-
 # Save
 function schedule_dot_li_configuration_content_page() {
 
@@ -356,15 +351,12 @@ function schedule_dot_li_configuration_content_page() {
     </form>
     <?php
 
-
 }
 
 # Uninstall plugin
-
 register_uninstall_hook( __FILE__, 'schedule_dot_li_plugin_uninstall' );
 
 function schedule_dot_li_plugin_uninstall() {
-
     $options = get_option( 'schedule_dot_li_content_settings' );
     # Clear at uninstall
     $option_to_delete = 'schedule_dot_li_content_settings';
