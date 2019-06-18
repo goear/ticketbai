@@ -29,7 +29,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-$option_to_delete = 'schedule_dot_li_content_settings';
 function returnValidValueToScheduleString($key)
 {
     $options = get_option( 'schedule_dot_li_content_settings' );
@@ -51,9 +50,6 @@ function returnValidValueToScheduleString($key)
 }
 
 if ( ! defined( 'ABSPATH' ) ) exit;
-
-$options = get_option( 'schedule_dot_li_content_settings' );
-
 
 if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
     function schedule_add_button_in_pages_and_posts($content) {
@@ -120,29 +116,17 @@ if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
             }
     }
     add_filter( 'the_content', 'schedule_add_button_in_pages_and_posts' );
-
-}
-
-function deliver_mail() {
-
-    // if the submit button is clicked, send the email
-    if ( isset( $_POST['cf-submitted'] ) ) {
-
-       echo "yes!!";
-    }
 }
 
 add_action( 'admin_menu', 'schedule_dot_li_add_admin_menu' );
 add_action( 'admin_init', 'schedule_dot_li_settings_init' );
 
-# Menu
 function schedule_dot_li_add_admin_menu() {
 
     add_options_page( 'Schedule', 'Schedule configuration', 'manage_options', 'schedule_dot_li_configuration', 'schedule_dot_li_configuration_content_page' );
 
 }
 
-# Prepare
 function schedule_dot_li_settings_init() {
 
 
@@ -219,8 +203,6 @@ function schedule_dot_li_userid_field_section_render() {
 
     $options = get_option( 'schedule_dot_li_content_settings' );
 
-
-
     ?>
     <input type='text' name='schedule_dot_li_content_settings[schedule_dot_li_user_id_content_value_field]' value='<?php
 
@@ -245,8 +227,6 @@ function schedule_call_to_action_text_field_section_render() {
 
     ?>' cols='' style='width:100%' >
     <?php
-
-
 }
 
 
@@ -261,8 +241,6 @@ function schedule_dot_li_name_field_section_render() {
 
     ?>' cols='' style='width:100%' >
     <?php
-
-
 }
 
 
@@ -276,8 +254,6 @@ function schedule_dot_li_date_field_section_render() {
 
     ?>' cols='' style='width:100%' >
     <?php
-
-
 }
 
 
@@ -288,15 +264,11 @@ function schedule_dot_li_time_field_section_render() {
     <input type='text' name='schedule_dot_li_content_settings[schedule_dot_li_time_content_value_field]' value='<?php
 
     echo returnValidValueToScheduleString('schedule_dot_li_time_content_value_field');
-
-
     ?>' cols='' style='width:100%' >
     <?php
-
 }
 
 function schedule_dot_li_email_field_section_render() {
-
     $options = get_option( 'schedule_dot_li_content_settings' );
     ?>
     <input type='text' name='schedule_dot_li_content_settings[schedule_dot_li_email_content_value_field]' value='<?php
@@ -305,11 +277,9 @@ function schedule_dot_li_email_field_section_render() {
 
     ?>' cols='' style='width:100%' >
     <?php
-
 }
 
 function schedule_dot_li_phone_field_section_render() {
-
     $options = get_option( 'schedule_dot_li_content_settings' );
     ?>
     <input type='text' name='schedule_dot_li_content_settings[schedule_dot_li_phone_content_value_field]' value='<?php
@@ -318,11 +288,9 @@ function schedule_dot_li_phone_field_section_render() {
 
     ?>' cols='' style='width:100%' >
     <?php
-
 }
 
 function schedule_dot_li_submit_field_section_render() {
-
     $options = get_option( 'schedule_dot_li_content_settings' );
     ?>
     <input type='text' name='schedule_dot_li_content_settings[schedule_dot_li_submit_content_value_field]' value='<?php
@@ -331,31 +299,24 @@ function schedule_dot_li_submit_field_section_render() {
 
     ?>' cols='' style='width:100%' >
     <?php
-
 }
 
 # Save
 function schedule_dot_li_configuration_content_page() {
-
     ?>
     <form action='options.php' method='post'>
-
         <h2>Schedule in your language</h2>
-
         <?php
         settings_fields( 'SchedulePluginCustomContent' );
         do_settings_sections( 'SchedulePluginCustomContent' );
         submit_button();
         ?>
-
     </form>
     <?php
-
 }
 
 # Uninstall plugin
 register_uninstall_hook( __FILE__, 'schedule_dot_li_plugin_uninstall' );
-
 function schedule_dot_li_plugin_uninstall() {
     $options = get_option( 'schedule_dot_li_content_settings' );
     # Clear at uninstall
