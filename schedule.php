@@ -60,7 +60,7 @@ if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
             {
                 $name    = sanitize_text_field( $_POST["cf-name"] );
                 $email   = sanitize_email( $_POST["cf-email"] );
-                $subject = "Demo schedule";
+                $subject = "Hey! Demo schedule";
                 $date = 'Custom date: '.$_POST['custom_date'];
                 $phone = 'Custom date: '.$_POST['phone'];
                 $message = 'Date: '.$date.'<br>';
@@ -75,7 +75,6 @@ if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
                 }
             }
             else {
-
                 $calltoActionText = returnValidValueToScheduleString('schedule_dot_li_call_to_action_content_value_field');
                 add_thickbox();
                 wp_enqueue_script('jquery-ui-datepicker');
