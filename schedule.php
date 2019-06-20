@@ -8,6 +8,7 @@
  * Version: 1.0.0
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Repo: https://github.com/goear/schedule
 */
 
 /*
@@ -29,25 +30,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-function returnValidValueToScheduleString($key)
-{
-    $options = get_option( 'schedule_dot_li_content_settings' );
-    if ( isset( $options[$key] ) && !empty( $options[$key] )) {
-        return $options[$key];
-    }
-    else {
-        $defaultValues = [
-            'schedule_dot_li_call_to_action_content_value_field' => 'Request a demo',
-            'schedule_dot_li_date_content_value_field' => 'Date',
-            'schedule_dot_li_time_content_value_field' => 'Time',
-            'schedule_dot_li_name_content_value_field' => 'Your Name (required)',
-            'schedule_dot_li_email_content_value_field' => 'Your Email (required)',
-            'schedule_dot_li_phone_content_value_field' => 'Phone',
-            'schedule_dot_li_submit_content_value_field' => 'Request a demo'
-        ];
-        return $defaultValues[$key];
-    }
-}
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -295,6 +277,27 @@ function schedule_dot_li_configuration_content_page() {
     </form>
     <?php
 }
+
+function returnValidValueToScheduleString($key)
+{
+    $options = get_option( 'schedule_dot_li_content_settings' );
+    if ( isset( $options[$key] ) && !empty( $options[$key] )) {
+        return $options[$key];
+    }
+    else {
+        $defaultValues = [
+            'schedule_dot_li_call_to_action_content_value_field' => 'Request a demo',
+            'schedule_dot_li_date_content_value_field' => 'Date',
+            'schedule_dot_li_time_content_value_field' => 'Time',
+            'schedule_dot_li_name_content_value_field' => 'Your Name (required)',
+            'schedule_dot_li_email_content_value_field' => 'Your Email (required)',
+            'schedule_dot_li_phone_content_value_field' => 'Phone',
+            'schedule_dot_li_submit_content_value_field' => 'Request a demo'
+        ];
+        return $defaultValues[$key];
+    }
+}
+
 
 # Uninstall plugin
 register_uninstall_hook( __FILE__, 'schedule_dot_li_plugin_uninstall' );

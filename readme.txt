@@ -22,6 +22,10 @@ The easiest way to install a button in your post and pages offering to your cust
 
 == Frequently Asked Questions ==
 
+= How can I collaborate with the development? =
+
+https://github.com/goear/schedule
+
 = How can I configure the plugin? =
 
 In the settings sections you will see "Schedule configuration" link.
