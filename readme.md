@@ -2,7 +2,6 @@
 > The easiest way to add a button for scheduling or requesting a call or demo in your WordPress page. Yes, we :heartbeat: WordPress
 
 [![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
 
 
 ## Installation
@@ -77,7 +76,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 ## Contributing
 
-1. Fork it (<https://github.com/goear/schedule)
+1. Fork it (https://github.com/goear/schedule)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
