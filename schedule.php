@@ -198,24 +198,6 @@ function schedule_dot_li_settings_init() {
 
 }
 
-function schedule_dot_li_userid_field_section_render() {
-
-    $options = get_option( 'schedule_dot_li_content_settings' );
-
-    ?>
-    <input type='text' name='schedule_dot_li_content_settings[schedule_dot_li_user_id_content_value_field]' value='<?php
-
-    if ( isset( $options['schedule_dot_li_user_id_content_value_field'] ) && !empty( $options['schedule_dot_li_user_id_content_value_field'] )) {
-        echo $options['schedule_dot_li_user_id_content_value_field'];
-    } else { echo __( '', 'schedule_dot_li_add_custom_content_to_bottom_of_post' ); }
-
-    ?>' cols='' style='width:100%' >
-    <?php
-
-    echo __( 'Get your ID from <a href="https://schedule.li">schedule.li</a> <strong>It\'s free!</strong>' );
-
-}
-
 function schedule_call_to_action_text_field_section_render() {
 
     $options = get_option( 'schedule_dot_li_content_settings' );
