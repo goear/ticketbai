@@ -29,7 +29,7 @@ If the plugin is activated a link will appear in the top of every page and post 
 
 In the coming upper versions, we will add a filter to determinate in which pages or posts will appear the link.
 
-##translation:
+## Translation:
 
 Default field label language is english but you can edit these values in the settings page. Click in settings / Schedule settings
 
