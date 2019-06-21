@@ -38,13 +38,13 @@ if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
 
         $options = get_option( 'schedule_dot_li_content_settings' );
 
-            if (!empty($_POST['cf-submitted']))
+            if (!empty($_POST['cf-submitted']) && isset($_POST['nounce']) && wp_verify_nonce($_POST['nounce'], 'schedule_add_action'))
             {
                 $name    = sanitize_text_field( $_POST["cf-name"] );
                 $email   = sanitize_email( $_POST["cf-email"] );
                 $subject = "Hey! Demo schedule";
-                $date = 'Custom date: '.$_POST['custom_date'];
-                $phone = 'Custom date: '.$_POST['phone'];
+                $date = 'Custom date: '.sanitize_text_field($_POST['custom_date']);
+                $phone = 'Custom date: '.sanitize_text_field($_POST['phone']);
                 $message = 'Date: '.$date.'<br>';
                 $message .= 'Phone: '.$phone.'<br>';
                 // get the blog administrator's email address
@@ -53,15 +53,14 @@ if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
                 if ( wp_mail( $to, $subject, $message, $headers ) ) {
                     echo '<h4 style="color: green;">Thank you! We will contact you as soon as we review your request.</h4>';
                 } else {
-                    echo 'An unexpected error occurred';
+                    echo 'An unexpected error occurred, check your email configuration';
                 }
             }
             else {
                 $calltoActionText = returnValidValueToScheduleString('schedule_dot_li_call_to_action_content_value_field');
                 add_thickbox();
                 wp_enqueue_script('jquery-ui-datepicker');
-                wp_enqueue_style('jquery-ui-css', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css');
-                wp_enqueue_style('jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+                wp_enqueue_style('jquery-ui-css');
                 $contentAppend = '<script type="text/javascript">
                 jQuery(document).ready(function($) {
                     $(\'.custom_date\').datepicker({
@@ -72,6 +71,7 @@ if ( !function_exists("schedule_add_button_in_pages_and_posts") ) {
              <p>
              <h2>'.returnValidValueToScheduleString('schedule_dot_li_call_to_action_content_value_field').'</h2>
                     <form action="'. esc_url( $_SERVER['REQUEST_URI'] ) .'" method="post">
+                    <input type="hidden" name="nounce" value="'.wp_create_nonce('schedule_add_action').'">
                     <p>
                     '.returnValidValueToScheduleString('schedule_dot_li_date_content_value_field').': <br/>
                     <input type="text" class="custom_date" name="start_date" value=""/> '.returnValidValueToScheduleString('schedule_dot_li_time_content_value_field').': <input type="text" name="time"" value="" size="40" />
@@ -282,7 +282,7 @@ function returnValidValueToScheduleString($key)
 {
     $options = get_option( 'schedule_dot_li_content_settings' );
     if ( isset( $options[$key] ) && !empty( $options[$key] )) {
-        return $options[$key];
+        return esc_html($options[$key]);
     }
     else {
         $defaultValues = [
@@ -297,7 +297,6 @@ function returnValidValueToScheduleString($key)
         return $defaultValues[$key];
     }
 }
-
 
 # Uninstall plugin
 register_uninstall_hook( __FILE__, 'schedule_dot_li_plugin_uninstall' );
