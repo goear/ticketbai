@@ -1,34 +1,29 @@
-=== Schedule ===
-Contributors: scheduler
-Tags: schedule, demo, calls
-Requires at least: 3.0.1
-Tested up to: 5.2.2
+=== ticketbai ===
+Contributors: schedule
+Tags: facturacion, ticketbai, batuz, ticket bai
+Requires at least: 5.2
 Requires PHP: 5.6
-Stable tag: 4.3
-Text Domain: schedule
-License: GPLv2 or later
+Tested up to: 5.8
+Stable tag: 4.2.3
+License: GNU General Public License v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Plugin for scheduling demos or calls
+Plugin de wordpress, software garante para emitir facturas con la normativa ticketbai
 
 == Description ==
 
-The easiest way to install a button in your post and pages offering to your customers to request a demo or a call
+Emite tus facturas a las haciendas forales cumpliendo la normativa ticketbai para Bizkaia, Gipuzkoa y Araba.
 
 == Installation ==
 
-1. Download therapist plugin
-2. Activate the plugin through the 'Plugins' menu in WordPress
+1. Descargar plugin
+2. Activar plugin
 
-== Frequently Asked Questions ==
+== Preguntas frecuentes ==
 
-= How can I collaborate with the development? =
+= Como lo configuro? =
 
-https://github.com/goear/schedule
-
-= How can I configure the plugin? =
-
-In the settings sections you will see "Schedule configuration" link.
+En la sección configuración
 
 == Changelog ==
 

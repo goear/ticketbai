@@ -1,4 +1,4 @@
-# Schedule
+# ticketbai
 > The easiest way to add a button for scheduling or requesting a call or demo in your WordPress page. Yes, we :heartbeat: WordPress
 
 [![Build Status][travis-image]][travis-url]
@@ -12,10 +12,10 @@
 Go to Wordpress plugin page 
 ```
 
-2: [Schedule](https://wordpress.org/plugins/schedule/)
+2: [ticketbai](https://wordpress.org/plugins/ticketbai/)
 
 ```sh
-Search schedule and click in "Install" button
+Search ticketbai and click in "Install" button
 ```
 
 
@@ -30,7 +30,7 @@ In the coming upper versions, we will add a filter to determinate in which pages
 
 ## Translation:
 
-Default field label language is english but you can edit these values in the settings page. Click in settings / Schedule settings
+Default field label language is english but you can edit these values in the settings page. Click in settings / ticketbai settings
 
 ## Development setup
 
@@ -62,7 +62,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 ## Contributing
 
-1. Fork it (https://github.com/goear/schedule)
+1. Fork it (https://github.com/goear/ticketbai)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
